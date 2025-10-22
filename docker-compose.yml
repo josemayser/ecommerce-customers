@@ -1,0 +1,28 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: ecommerce-customers-mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ecommerce_customers
+    ports:
+      - "3306:3306"
+    volumes:
+      - ecommerce_customers_mysql_data:/var/lib/mysql
+    restart: always
+
+  ecommerce-customers:
+    image: jmayser/ecommerce-customers:5.0.0
+    container_name: ecommerce-customers
+    ports:
+      - "9000:9000"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/ecommerce_customers
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - mysql
+    restart: always
+
+volumes:
+  ecommerce_customers_mysql_data:

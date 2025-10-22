@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="20251019-01"
+               author="Jose Andres Mayser Vasquez"
+               logicalFilePath="db/changelog/db.20251019-01-customers-table.sql">
+        <sqlFile path="db.20251019-01-customers-table.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+</databaseChangeLog>
